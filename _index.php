@@ -27,9 +27,8 @@ table, td {
 <?php
 require_once './Adatbazis.php';
 $item_id;
-$adatbazis_helyben = new adatbazis();
+$adatbazis_helyben = new adatbazis_david();
 $result = $adatbazis_helyben -> adatkeres("SELECT * FROM `map1`");
-echo $result;
 require_once '../Adatbazis.php';
 	echo "M.A.G.U.S. skirmish ALPHA 001";
 	echo "<table><br>";
