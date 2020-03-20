@@ -27,9 +27,26 @@ function selection(id)
 {
 	document.getElementById(id).innerHTML = "<img src= red.png >";
 	target1_id=id;
+	console.log("selcted"+id);
 }
 function send()
 {
+	e.preventDefault();
+	for(i=1;i<100;i++)
+	{
+		let params = map_id[i];
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'process_map.php', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+		xhr.onload = function(){
+			console.log(this.responseText);
+		}
+
+		xhr.send(params);
+	}
+
 
 }
 function reiceve()
