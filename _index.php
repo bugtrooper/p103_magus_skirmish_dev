@@ -29,7 +29,7 @@ require_once './Adatbazis.php';
 $item_id;
 $adatbazis_helyben = new adatbazis_david();
 $result = $adatbazis_helyben -> adatkeres("SELECT * FROM `map1`");
-require_once './Adatbazis.php';
+require_once './process_map.php';
 	echo "M.A.G.U.S. skirmish ALPHA 001";
 	echo "<table><br>";
 	for($j=1;$j<10;$j++)
