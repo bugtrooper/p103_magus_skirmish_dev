@@ -31,20 +31,22 @@ function selection(id)
 }
 function send()
 {
-	e.preventDefault();
 	//for(i=1;i<100;i++)
 //	{
 		let params = "name="+map_id[1];
-
+		console.log("let params = name=+map_id[1];");
 		var xhr = new XMLHttpRequest();
+		console.log("var xhr = new XMLHttpRequest();");
 		xhr.open('POST', 'process_map.php', true);
+		console.log("xhr.open('POST', 'process_map.php', true);");
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
+		console.log("xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');");
 		xhr.onload = function(){
 			console.log(this.responseText);
 		}
 
 		xhr.send(params);
+		console.log("xhr.send(params);");
 //	}
 
 
