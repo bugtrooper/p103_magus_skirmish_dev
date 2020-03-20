@@ -4,6 +4,8 @@ let selected2_id;
 let target1_id;
 let target2_id;
 
+let map[99];
+
 function targeting(id)
 {
 	document.getElementById(id).innerHTML = "<img src= red.png >";

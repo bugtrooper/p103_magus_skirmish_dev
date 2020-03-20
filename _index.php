@@ -43,7 +43,7 @@ require_once '../Adatbazis.php';
 			echo "<td onclick="."selection(".$k.") id=".$k."><img src="."yellow.png"."></th><br>";
 		}
 		echo "</tr>";
-	}	
+	}
 	echo "</table><br>"	;
 ?>
 <button type="button" onclick="send">Submit</button><button type="button" onclick="reiceve">Retrieve</button>
