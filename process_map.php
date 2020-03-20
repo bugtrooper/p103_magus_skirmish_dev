@@ -13,7 +13,7 @@ if(isset($_POST['id']))
   $terrain = substr($variable,-1);
   echo $terrain;
 //  $query = "INSERT INTO `map2`(`id`) VALUES('$variable')";
-  $query = "UPDATE `map2` SET `terrain`= $terrain  WHERE 'id' = $id";
+  $query = "UPDATE map2 SET terrain= '$terrain'  WHERE id = '$id'";
 
 
 
