@@ -3,25 +3,29 @@
 // Connect to a database
 $conn = mysqli_connect('localhost', 'root', '', 'skirmish_map_magus');
 
-echo 'Processing...';
-
 // Check for POST variable
-if(isset($_POST['name'])){
-  $name = mysqli_real_escape_string($conn, $_POST['name']);
-  echo 'POST: Your name is '. $_POST['name'];
+if(isset($_POST['id']))
+{
+  $variable = mysqli_real_escape_string($conn, $_POST['id']);
+  $id = substr($variable,0,-1);
+  echo $id;
+//  $newstring = substr($dynamicstring, -7);
+  $terrain = substr($variable,-1);
+  echo $terrain;
+//  $query = "INSERT INTO `map2`(`id`) VALUES('$variable')";
+  $query = "UPDATE `map2` SET `terrain`= $terrain  WHERE 'id' = $id";
 
-  //$query = "INSERT INTO users(name) VALUES('$name')";
-  $query = "INSERT INTO map2(id) VALUES ('$name')";
 
 
-  if(mysqli_query($conn, $query)){
-    echo 'User Added...';
-  } else {
+  if(mysqli_query($conn, $query))
+  {
+    //echo 'User Added...';
+  } else
+  {
     echo 'ERROR: '. mysqli_error($conn);
   }
 }
 
-// Check for GET variable
 if(isset($_GET['name'])){
-  echo 'GET: Your name is '. $_GET['name'];
+  //echo 'GET: Your name is '. $_GET['name'];
 }

@@ -14,7 +14,8 @@ for(j=1;j<10;j++)
 		k=j*1000;
 		k=k+i;
 		map_id[l]=k;
-		map_terrain[l]=1;
+		map_terrain[l]=2;
+		l++;
 	}
 }
 
@@ -31,9 +32,9 @@ function selection(id)
 }
 function send()
 {
-	//for(i=1;i<100;i++)
-//	{
-		let params = "name="+map_id[1];
+	for(i=1;i<100;i++)
+	{
+		let ident = "id="+map_id[i]+map_terrain[i];
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST', 'process_map.php', true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -41,8 +42,26 @@ function send()
 			console.log(this.responseText);
 		}
 
-		xhr.send(params);
-//	}
+		xhr.send(ident);
+	}
+
+
+}
+function init()
+{
+	for(i=1;i<100;i++)
+	{
+		let ident = "id="+map_id[i];
+		console.log("id:");
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST', 'process_map.php', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.onload = function(){
+			console.log(this.responseText);
+		}
+
+		xhr.send(ident);
+	}
 
 
 }
