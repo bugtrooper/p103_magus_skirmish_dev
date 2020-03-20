@@ -32,12 +32,12 @@ function selection(id)
 function send()
 {
 	e.preventDefault();
-	for(i=1;i<100;i++)
-	{
-		let params = map_id[i];
+	//for(i=1;i<100;i++)
+//	{
+		let params = map_id[1];
 
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'process_map.php', true);
+		xhr.open('POST', 'process_map.php?name=', true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
 		xhr.onload = function(){
@@ -45,7 +45,7 @@ function send()
 		}
 
 		xhr.send(params);
-	}
+//	}
 
 
 }
