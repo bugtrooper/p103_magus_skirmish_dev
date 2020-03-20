@@ -3,8 +3,20 @@ let selected_id;
 let selected2_id;
 let target1_id;
 let target2_id;
+let i,j,k,l=0;
 
-let map[99];
+let map_id[99];
+let map_terrain[99];
+for(j=1;j<10;j++)
+{
+	for(i=1;i<10;i++)
+	{
+		k=j*1000;
+		k=k+i;
+		map_id[l]=k;
+		map_terrain[l]=1;
+	}
+}
 
 function targeting(id)
 {
