@@ -11,7 +11,7 @@ if(isset($_POST['name'])){
   echo 'POST: Your name is '. $_POST['name'];
 
   //$query = "INSERT INTO users(name) VALUES('$name')";
-  $query = "INSERT INTO map2(id) VALUES ('&name')";
+  $query = "INSERT INTO map2(id) VALUES ('$name')";
 
 
   if(mysqli_query($conn, $query)){
