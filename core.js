@@ -115,7 +115,7 @@ function refresh()
 			if(map_unit[l] == 2)
 			{
 				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian2.png>";
-				console.log("barbarian found");
+				console.log("barbarian2 found");
 			}
 		}
 	}
