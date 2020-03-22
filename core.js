@@ -7,18 +7,27 @@ let i,j,k,l=0;
 
 let map_id = [];
 let map_terrain = [];
+let map_unit = [];
+let map_unitfacing = [];
+// 1 grass
+//initializing the map
 for(j=1;j<10;j++)
 {
 	for(i=1;i<10;i++)
 	{
 		k=j*1000;
 		k=k+i;
-		map_id[l]=k;
-		map_terrain[l]=2;
+		map_id[l] = k;
+		map_terrain[l] = 1;
+		map_unitfacing[l] = 1;
+		map_unit[l] = 0;
 		l++;
 	}
 }
-
+map_unit[30]=1;
+map_unit[50]=1;
+map_unit[10]=2;
+map_unit[70]=2;
 function targeting(id)
 {
 	document.getElementById(id).innerHTML = "<img src= red.png >";
@@ -80,6 +89,37 @@ function reiceve()
 		xhr.send(ident);
 	}
 
+}
+function refresh()
+{
+
+	console.log("in refresh");
+	l=0;
+	for(j=1;j<10;j++)
+	{
+		for(i=1;i<10;i++)
+		{
+			k=j*1000;
+			k=k+i;
+			console.log("k is: "+k);
+			console.log("l is: "+l);
+			console.log("unit is: "+l);
+			if(map_terrain[l] == 1)
+			document.getElementById(k).innerHTML = "<img src=./sprites/50x50_terrain_grass.png>";
+			l++;
+			if(map_unit[l] == 1)
+			{
+				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
+				console.log("barbarian found");
+			}
+			if(map_unit[l] == 2)
+			{
+				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian2.png>";
+				console.log("barbarian found");
+			}
+		}
+	}
+	document.getElementById(8004).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
 }
 function drawline(x0, y0, x1, y1) {
    var dx = Math.abs(x1 - x0);

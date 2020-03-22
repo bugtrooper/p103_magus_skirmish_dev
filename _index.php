@@ -13,8 +13,8 @@ table, td {
 	font-size: "0";
 	border: "0";
 	border-collapse: collapse;
-	height: 30px;
-	width: 30px;
+	height: 50px;
+	width: 50px;
 	cellspacing="0";
 	padding-top: 1px;
 	padding-right: 1px;
@@ -39,12 +39,14 @@ require_once './process_map.php';
 		{
 			$k=$j*1000;
 			$k=$k+$i;
-			echo "<td onclick="."selection(".$k.") id=".$k."><img src="."yellow.png"."></th><br>";
+			echo "<td onclick="."selection(".$k.") id=".$k."><img src="."./sprites/50x50_terrain_grass.png"."></th><br>";
 		}
 		echo "</tr>";
 	}
 	echo "</table><br>"	;
 ?>
-<button type="button" onclick="send">Submit</button><button type="button" onclick="reiceve">Retrieve</button>
+<button type="button" onclick="send">Submit</button>
+<button type="button" onclick="reiceve">Retrieve</button>
+<button type="button" onclick="refresh">Refresh</button>
 </body>
 <script src="core.js" defer></script>
