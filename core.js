@@ -67,6 +67,18 @@ function init()
 }
 function reiceve()
 {
+	for(i=1;i<100;i++)
+	{
+		let ident = "id="+map_id[i];
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', 'process_map.php', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.onload = function(){
+			map_terrain[i] = this.responseText;
+		}
+		console.log(map_terrain[i]);
+		xhr.send(ident);
+	}
 
 }
 function drawline(x0, y0, x1, y1) {

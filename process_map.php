@@ -26,6 +26,15 @@ if(isset($_POST['id']))
   }
 }
 
-if(isset($_GET['name'])){
-  //echo 'GET: Your name is '. $_GET['name'];
+if(isset($_GET['id']))
+{
+  $variable = mysqli_real_escape_string($conn, $_POST['id']);
+  $query = "SELECT 'terrain' FROM 'map2' WHERE id = '$id'";
+  if(mysqli_query($conn, $query))
+  {
+    //echo 'User Added...';
+  } else
+  {
+    echo 'ERROR: '. mysqli_error($conn);
+  }
 }
