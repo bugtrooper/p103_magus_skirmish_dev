@@ -26,6 +26,7 @@ table, td {
 <body>
 <?php
 require_once './Adatbazis.php';
+require_once './engine.php';
 $item_id;
 $adatbazis_helyben = new adatbazis_david();
 $result = $adatbazis_helyben -> adatkeres("SELECT * FROM `map1`");

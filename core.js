@@ -4,6 +4,8 @@ let selected2_id;
 let target1_id;
 let target2_id;
 let i,j,k,l=0;
+let action=0;
+let source_unit=0;
 
 let map_id = [];
 let map_terrain = [];
@@ -35,9 +37,18 @@ function targeting(id)
 }
 function selection(id)
 {
-	document.getElementById(id).innerHTML = "<img src= red.png >";
+	//document.getElementById(id).innerHTML = "<img src= red.png >";
 	target1_id=id;
 	console.log("selcted"+id);
+	let comman = "command=0";
+	let xhr = new XMLHttpRequest();
+	xhr.open('POST', 'engine.php', true);
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.onload = function(){
+		console.log(this.responseText);
+	}
+
+	xhr.send(comman);
 }
 function send()
 {
@@ -119,7 +130,7 @@ function refresh()
 			}
 		}
 	}
-	document.getElementById(8004).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
+	//document.getElementById(8004).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
 }
 function drawline(x0, y0, x1, y1) {
    var dx = Math.abs(x1 - x0);
