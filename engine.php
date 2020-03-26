@@ -1,6 +1,6 @@
 <?php
 //$conn = mysqli_connect('localhost', 'root', '', 'skirmish_map_magus');
-$conn1 = mysqli_connect('localhost', 'root', '', 'magus_active_instance');
+$conn1 = mysqli_connect('yggdrasilmc.freeddns.org', 'root', '', 'magus_active_instance');
 if(isset($_POST['command']))
 {
   $variable = mysqli_real_escape_string($conn1, $_POST['command']);
