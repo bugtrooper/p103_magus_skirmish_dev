@@ -46,8 +46,11 @@ require_once './process_map.php';
 	}
 	echo "</table><br>"	;
 ?>
-<button type="button" onclick="send">Submit</button>
-<button type="button" onclick="reiceve">Retrieve</button>
-<button type="button" onclick="refresh">Refresh</button>
+<button type="button" onclick=send()>previous</button>
+<button type="button" onclick=reiceve()>next</button>
+<button type="button" onclick=move_action()>move</button>
+<button type="button" onclick=attack_action()>attack</button>
+<button type="button" onclick=refresh()>new</button>
+
 </body>
 <script src="core.js" defer></script>

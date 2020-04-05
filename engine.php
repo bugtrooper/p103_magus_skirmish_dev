@@ -1,6 +1,6 @@
 <?php
 //$conn = mysqli_connect('localhost', 'root', '', 'skirmish_map_magus');
-$conn1 = mysqli_connect('yggdrasilmc.freeddns.org', 'root', '', 'magus_active_instance');
+$conn1 = mysqli_connect("localhost", 'root', '', 'magus_active_instance');
 if(isset($_POST['command']))
 {
   $variable = mysqli_real_escape_string($conn1, $_POST['command']);
@@ -35,7 +35,14 @@ if(isset($_POST['command']))
   {
     //attack
     //search unit a weapon data
+    $query = "SELECT 'att' FROM 'map3_units' WHERE id = '$com_who'";
+    $unit_att=mysqli_query($conn1, $query);
     //target health update
+    $query = "SELECT 'hp' FROM 'map3_units' WHERE pos = '$com_to'";
+    $target_health=mysqli_query($conn1, $query);
+    $target_health=$target_health-$unit_att;
+    $query = "UPDATE 'map3_units' SET hp= $target_health  WHERE pos = '$com_to'";
+    mysqli_query($conn1, $query);
     //if die than erase from database
   }
 

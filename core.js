@@ -6,11 +6,13 @@ let target2_id;
 let i,j,k,l=0;
 let action=0;
 let source_unit=0;
+let unit_swap=0;
 
 let map_id = [];
 let map_terrain = [];
 let map_unit = [];
 let map_unitfacing = [];
+let player_unit = [];
 // 1 grass
 //initializing the map
 for(j=1;j<10;j++)
@@ -37,15 +39,13 @@ function targeting(id)
 }
 function selection(id)
 {
-	//document.getElementById(id).innerHTML = "<img src= red.png >";
-	target1_id=id;
-	console.log("selcted"+id);
-	let comman = "command=0";
+	console.log("selcted:"+id+" command:"+action);
+	let comman = "command="+id+action;
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST', 'engine.php', true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function(){
-		console.log(this.responseText);
+	//	console.log(this.responseText);
 	}
 
 	xhr.send(comman);
@@ -100,6 +100,16 @@ function reiceve()
 		xhr.send(ident);
 	}
 
+}
+function move_action()
+{
+	action=1;
+	console.log("moving selected");
+}
+function attack_action()
+{
+	action=2;
+	console.log("attacking selected");
 }
 function refresh()
 {

@@ -2,7 +2,7 @@
 class adatbazis_david
 {
 	// Tulajdonságok
-	var $servername = "'yggdrasilmc.freeddns.org'";
+	var $servername = "localhost";
 	var $username = "root";
 	var $password = "";
 	var $dbname = "skirmish_map_magus";
