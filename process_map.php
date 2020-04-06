@@ -38,3 +38,15 @@ if(isset($_GET['id']))
     echo 'ERROR: '. mysqli_error($conn);
   }
 }
+if(isset($_GET['mapunit']))
+{
+  $variable = mysqli_real_escape_string($conn, $_POST['id']);
+  $query = "SELECT 'unitid' FROM 'map2' WHERE id = '$id'";
+  if(mysqli_query($conn, $query))
+  {
+    //echo 'User Added...';
+  } else
+  {
+    echo 'ERROR: '. mysqli_error($conn);
+  }
+}

@@ -5,7 +5,7 @@ let target1_id;
 let target2_id;
 let i,j,k,l=0;
 let action=0;
-let source_unit=0;
+let source_unit=10;
 let unit_swap=0;
 
 let map_id = [];
@@ -39,13 +39,13 @@ function targeting(id)
 }
 function selection(id)
 {
-	console.log("selcted:"+id+" command:"+action);
-	let comman = "command="+id+action;
+	console.log("selcted:"+id+" command:"+action+" from: "+source_unit);
+	let comman = "command="+id+action+source_unit;
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST', 'engine.php', true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function(){
-	//	console.log(this.responseText);
+		console.log(this.responseText);
 	}
 
 	xhr.send(comman);
@@ -113,7 +113,7 @@ function attack_action()
 }
 function refresh()
 {
-
+	getdatafromserver();
 	console.log("in refresh");
 	l=0;
 	for(j=1;j<10;j++)
@@ -122,25 +122,41 @@ function refresh()
 		{
 			k=j*1000;
 			k=k+i;
-			console.log("k is: "+k);
-			console.log("l is: "+l);
-			console.log("unit is: "+l);
+			//console.log("k is: "+k);
+			//console.log("l is: "+l);
+			//console.log("unit is: "+l);
 			if(map_terrain[l] == 1)
 			document.getElementById(k).innerHTML = "<img src=./sprites/50x50_terrain_grass.png>";
 			l++;
 			if(map_unit[l] == 1)
 			{
 				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
-				console.log("barbarian found");
+				//console.log("barbarian found");
 			}
 			if(map_unit[l] == 2)
 			{
 				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian2.png>";
-				console.log("barbarian2 found");
+				//console.log("barbarian2 found");
 			}
 		}
 	}
 	//document.getElementById(8004).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
+}
+function getdatafromserver()
+{
+	for(i=1;i<100;i++)
+	{
+		let ident = "mapunit="+map_id[i];
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', 'process_map.php', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.onload = function()
+		{
+		map_unit[i] = this.responseText;
+		}
+		//console.log(map_terrain[i]);
+		xhr.send(ident);
+	}
 }
 function drawline(x0, y0, x1, y1) {
    var dx = Math.abs(x1 - x0);
