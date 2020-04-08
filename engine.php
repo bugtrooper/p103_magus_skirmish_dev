@@ -12,10 +12,25 @@ if(isset($_POST['command']))
   $com_to = substr($variable,0,-3); //take the id minus legth of action and source
   $com_what = substr($variable,-3,1); // only the action
   $com_who = substr($variable,-2,2);
-  // if what = 1 move 2 attack
+  echo $com_what;
+  echo " from: ";
+  echo $com_who;
+  echo " to: ";
+  echo $com_to;
+
+
+//nem stimmel a query
+
   $query = "SELECT 'pos' FROM 'map3_units' WHERE id = '$com_who'";
+  echo "\n";
   $com_from=mysqli_query($conn1, $query);
+  //$com_from="2004"; //ideiglenes toldás
+  echo "found where is $com_who he is at: $com_from";
+  echo "\n";
+  echo "\n";
+  echo "\n";
   //query serch 'who' and extract its id
+
   if($com_what==1)
   {
     //move
@@ -23,7 +38,7 @@ if(isset($_POST['command']))
     //to pos update
     $query = "SELECT 'kep' FROM 'map3_units' WHERE id = '$com_who'";
     $unit_pic=mysqli_query($conn1, $query);
-    echo "unitpic="+'$unit_pic';
+    echo "'unitpic='+'$unit_pic'";
     $query = "UPDATE 'map3_units' SET pos= '$com_to'  WHERE id = '$com_who'";
     mysqli_query($conn1, $query);
     echo "updated map3_units positionof:"+$com_who;
