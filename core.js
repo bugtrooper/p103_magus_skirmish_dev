@@ -146,16 +146,17 @@ function getdatafromserver()
 {
 	for(i=1;i<100;i++)
 	{
-		let ident = "mapunit="+map_id[i];
+		console.log("get data from server");
+		let message = "mapunit="+map_id[i];
 		let xhr = new XMLHttpRequest();
-		xhr.open('GET', 'process_map.php', true);
+		xhr.open('GET', 'engine.php', true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xhr.onload = function()
 		{
 		map_unit[i] = this.responseText;
 		}
-		//console.log(map_terrain[i]);
-		xhr.send(ident);
+		console.log(map_unit[i]);
+		xhr.send(message);
 	}
 }
 function drawline(x0, y0, x1, y1) {

@@ -87,4 +87,19 @@ if(isset($_POST['command']))
     echo 'ERROR: '. mysqli_error($conn1);
   }
 }
+if(isset($_GET['mapunit']))
+{
+  echo "got data from server";
+  $variable = mysqli_real_escape_string($conn1, $_POST['mapunit']);
+  $query = "SELECT unitid FROM map3 WHERE id = '$id'";
+  if(mysqli_query($conn1, $query))
+  {
+    echo "connection ok";
+    //echo 'User Added...';
+  } else
+  {
+    echo 'ERROR: '. mysqli_error($conn1);
+  }
+
+}
 ?>
