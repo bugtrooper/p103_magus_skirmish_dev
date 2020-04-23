@@ -2,7 +2,7 @@
 
 // Connect to a database
 $conn = mysqli_connect('localhost', 'root', '', 'skirmish_map_magus');
-
+$conn1 = mysqli_connect("localhost", 'root', '', 'magus_active_instance');
 // Check for POST variable
 if(isset($_POST['id']))
 {
@@ -28,14 +28,14 @@ if(isset($_POST['id']))
 
 if(isset($_GET['id']))
 {
-  $variable = mysqli_real_escape_string($conn, $_POST['id']);
-  $query = "SELECT 'terrain' FROM 'map2' WHERE id = '$id'";
-  if(mysqli_query($conn, $query))
+  $variable = mysqli_real_escape_string($conn1, $_POST['id']);
+  $query = "SELECT 'unitid' FROM 'map3' WHERE id = '$id'";
+  if(mysqli_query($conn1, $query))
   {
     //echo 'User Added...';
   } else
   {
-    echo 'ERROR: '. mysqli_error($conn);
+    echo 'ERROR: '. mysqli_error($conn1);
   }
 }
 if(isset($_GET['mapunit']))

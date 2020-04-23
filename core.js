@@ -94,9 +94,9 @@ function reiceve()
 		xhr.open('GET', 'process_map.php', true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xhr.onload = function(){
-			map_terrain[i] = this.responseText;
+			map_unit[i] = this.responseText;
 		}
-		console.log(map_terrain[i]);
+		console.log(map_unit[i]);
 		xhr.send(ident);
 	}
 
@@ -117,7 +117,7 @@ function refresh()
 	console.log("in refresh");
 	l=0;
 	for(j=1;j<10;j++)
-	{
+	{	   //     ˇ ez a xar akasztotta meg bazdmeg
 		for(i=1;i<10;i++)
 		{
 			k=j*1000;
@@ -143,20 +143,21 @@ function refresh()
 	//document.getElementById(8004).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
 }
 function getdatafromserver()
-{
-	for(i=1;i<100;i++)
+{    //ˇ magic fucking let!! don't disturb it!
+	for(let i=1;i<100;i++)
 	{
-		console.log("get data from server");
+		console.log("get data from server for the: "+i+"th time");
 		let message = "mapunit="+map_id[i];
 		let xhr = new XMLHttpRequest();
-		xhr.open('GET', 'engine.php', true);
-		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.open('GET', 'engine.php?'+message, true);
+		//xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
 		xhr.onload = function()
 		{
-		map_unit[i] = this.responseText;
+		map_id[i] = this.responseText;
+		console.log(i,this.responseText);
 		}
-		console.log(map_unit[i]);
-		xhr.send(message);
+		xhr.send();
 	}
 }
 function drawline(x0, y0, x1, y1) {

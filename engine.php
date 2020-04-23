@@ -1,6 +1,9 @@
 <?php
 //$conn = mysqli_connect('localhost', 'root', '', 'skirmish_map_magus');
 $conn1 = mysqli_connect("localhost", 'root', '', 'magus_active_instance');
+
+//echo "engine running...";
+
 if(isset($_POST['command']))
 {
   //szetbontas
@@ -17,9 +20,6 @@ if(isset($_POST['command']))
   echo $com_who;
   echo " to: ";
   echo $com_to;
-
-
-//nem stimmel a query
 
   $query = "SELECT pos FROM map3_units WHERE id = '$com_who'";
   echo "\n";
@@ -89,17 +89,35 @@ if(isset($_POST['command']))
 }
 if(isset($_GET['mapunit']))
 {
-  echo "got data from server";
-  $variable = mysqli_real_escape_string($conn1, $_POST['mapunit']);
-  $query = "SELECT unitid FROM map3 WHERE id = '$id'";
-  if(mysqli_query($conn1, $query))
-  {
-    echo "connection ok";
-    //echo 'User Added...';
-  } else
-  {
-    echo 'ERROR: '. mysqli_error($conn1);
-  }
+  $com_from=0;
+  $variable = mysqli_real_escape_string($conn1, $_GET['mapunit']);
+  $com_who=$variable;
+  $query = "SELECT unitid FROM map3 WHERE id = '$com_who'";
+  $result=mysqli_query($conn1, $query);
+  while ($row = $result->fetch_row())
+    {
+      $com_from=$row[0];
+    }
 
+  echo $com_from;
+  //$query = "SELECT 'unitid' FROM 'map3' WHERE id = '$variable'";
+  //$result=mysqli_query($conn1, $query);
+
+  //echo "from ".$variable." got data from server".$result;
+  //$result=mysqli_query($conn1, $query);
+  //while ($row = $result->fetch_row())
+  //  {
+  //    $com_from=$row[0];
+  //  }
+  //echo $com_from;
+//  if(mysqli_query($conn1, $query))
+  //{
+    //echo "connection ok";
+    //echo 'User Added...';
+//  } else
+//  {
+    //echo 'ERROR: '. mysqli_error($conn1);
+//  }
+//echo $return;
 }
 ?>
