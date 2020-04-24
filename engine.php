@@ -87,37 +87,15 @@ if(isset($_POST['command']))
     echo 'ERROR: '. mysqli_error($conn1);
   }
 }
-if(isset($_GET['mapunit']))
+if(isset($_GET['updatemap']))
 {
-  $com_from=0;
-  $variable = mysqli_real_escape_string($conn1, $_GET['mapunit']);
-  $com_who=$variable;
-  $query = "SELECT unitid FROM map3 WHERE id = '$com_who'";
+  $query = "SELECT id,unitid FROM map3 WHERE 1";
   $result=mysqli_query($conn1, $query);
-  while ($row = $result->fetch_row())
-    {
-      $com_from=$row[0];
-    }
-
-  echo $com_from;
-  //$query = "SELECT 'unitid' FROM 'map3' WHERE id = '$variable'";
-  //$result=mysqli_query($conn1, $query);
-
-  //echo "from ".$variable." got data from server".$result;
-  //$result=mysqli_query($conn1, $query);
-  //while ($row = $result->fetch_row())
-  //  {
-  //    $com_from=$row[0];
-  //  }
-  //echo $com_from;
-//  if(mysqli_query($conn1, $query))
-  //{
-    //echo "connection ok";
-    //echo 'User Added...';
-//  } else
-//  {
-    //echo 'ERROR: '. mysqli_error($conn1);
-//  }
-//echo $return;
+  $jsonarray= array();
+  while($row = mysqli_fetch_assoc($result))
+  {
+    $jsonarray[]=$row;
+  }
+  echo json_encode($jsonarray);
 }
 ?>

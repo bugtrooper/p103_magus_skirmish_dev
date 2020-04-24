@@ -7,6 +7,9 @@ let i,j,k,l=0;
 let action=0;
 let source_unit=10;
 let unit_swap=0;
+let j_map_unit="";
+let j_temp={};
+
 
 let map_id = [];
 let map_terrain = [];
@@ -69,21 +72,12 @@ function send()
 }
 function init()
 {
-	for(i=1;i<100;i++)
+	for(i=0;i<100;i++)
 	{
-		let ident = "id="+map_id[i];
-		console.log("id:");
-		let xhr = new XMLHttpRequest();
-		xhr.open('POST', 'process_map.php', true);
-		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr.onload = function(){
-			console.log(this.responseText);
-		}
-
-		xhr.send(ident);
+		j_temp[map_id[i]]=map_unit[i];
+		console.log(j_temp);
 	}
-
-
+	j_map_unit=JSON.stringify(j_temp);
 }
 function reiceve()
 {
@@ -114,51 +108,37 @@ function attack_action()
 function refresh()
 {
 	getdatafromserver();
-	console.log("in refresh");
-	l=0;
-	for(j=1;j<10;j++)
-	{	   //     ˇ ez a xar akasztotta meg bazdmeg
-		for(i=1;i<10;i++)
+	for(k=0;k<81;k++)
+	{
+		if(j_temp[k].unitid=="2")
 		{
-			k=j*1000;
-			k=k+i;
-			//console.log("k is: "+k);
-			//console.log("l is: "+l);
-			//console.log("unit is: "+l);
-			if(map_terrain[l] == 1)
-			document.getElementById(k).innerHTML = "<img src=./sprites/50x50_terrain_grass.png>";
-			l++;
-			if(map_unit[l] == 1)
-			{
-				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
-				//console.log("barbarian found");
-			}
-			if(map_unit[l] == 2)
-			{
-				document.getElementById(k).innerHTML = "<img src=./sprites/50x50_unit_barbarian2.png>";
-				//console.log("barbarian2 found");
-			}
+			document.getElementById(j_temp[k].id).innerHTML = "<img src=./sprites/50x50_unit_barbarian2.png>";
+		}
+		if(j_temp[k].unitid=="1")
+		{
+			document.getElementById(j_temp[k].id).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
+		}
+		if(j_temp[k].unitid=="0")
+		{
+			document.getElementById(j_temp[k].id).innerHTML = "<img src=./sprites/50x50_terrain_grass.png>";
 		}
 	}
-	//document.getElementById(8004).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
+
 }
 function getdatafromserver()
-{    //ˇ magic fucking let!! don't disturb it!
-	for(let i=1;i<100;i++)
-	{
-		console.log("get data from server for the: "+i+"th time");
-		let message = "mapunit="+map_id[i];
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', 'engine.php?'+message, true);
-		//xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+{
+	let xhr = new XMLHttpRequest();
+      xhr.open('GET', 'engine.php?updatemap=', true);
 
-		xhr.onload = function()
-		{
-		map_id[i] = this.responseText;
-		console.log(i,this.responseText);
-		}
-		xhr.send();
-	}
+      xhr.onload = function()
+			{
+        if(this.status == 200)
+				{
+          j_temp = JSON.parse(this.responseText);
+					console.log(j_temp);
+      	}
+			}
+			xhr.send();
 }
 function drawline(x0, y0, x1, y1) {
    var dx = Math.abs(x1 - x0);
