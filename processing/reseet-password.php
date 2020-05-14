@@ -13,10 +13,6 @@
       header("Location: ../create-new-password.php?newpwd=pwdnotsame");
       exit();
     }
-<<<<<<< HEAD
-=======
-    else {
->>>>>>> 25f52a402fb31b9312df09b1c7fb1697a2475ffb
 
     $currrentDate = date ("U");
 
@@ -87,10 +83,6 @@
 
                     }
                   }
-<<<<<<< HEAD
-=======
-                }
->>>>>>> 25f52a402fb31b9312df09b1c7fb1697a2475ffb
             }
           }
         }
