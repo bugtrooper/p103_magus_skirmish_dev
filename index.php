@@ -34,7 +34,7 @@ table, td {
 			if (isset($_SESSION['userId'])) {
 				echo '<form action="processing/logout.php" method="post">
 					<button type="submit">Logout</button>
-				</form>';					
+				</form>';
 			}
 			else {
 				echo '<form action="processing/login.php" method="post">
@@ -47,7 +47,7 @@ table, td {
 					<button type="submit" name="logout-submit">Logout</button>
 				</form>';
 			}
-		 ?>
+		?>
 
 	</div>
 
