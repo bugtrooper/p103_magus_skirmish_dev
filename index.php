@@ -1,3 +1,6 @@
+<?php
+	session_start();
+ ?>
 <meta charset="utf-8">
 <style>
 table {
@@ -16,7 +19,7 @@ table, td {
 	height: 50px;
 	width: 50px;
 	cellspacing="0";
-	padding-top: 1px;
+	padding-top: 2px;
 	padding-right: 1px;
 	padding-bottom: 1px;
 	padding-left: 1px;
@@ -24,6 +27,33 @@ table, td {
 }
 </style>
 <body>
+	<!-- Login -->
+
+	<div>
+		<?php
+			if (isset($_SESSION['userId'])) {
+				echo '<form action="processing/logout.php" method="post">
+					<button type="submit">Logout</button>
+				</form>';					
+			}
+			else {
+				echo '<form action="processing/login.php" method="post">
+					<input type="text" name="mailuid" placeholder="Username/E-mail...">
+					<input type="password" name="pwd" placeholder="Password">
+					<button type="submit" name="login-submit">Login</button>
+				</form>
+				<a href="signup.php">Signup</a>
+				<form action="logout" method="post">
+					<button type="submit" name="logout-submit">Logout</button>
+				</form>';
+			}
+		 ?>
+
+	</div>
+
+
+
+
 <?php
 require_once './Adatbazis.php';
 require_once './engine.php';
