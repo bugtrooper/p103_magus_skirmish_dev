@@ -13,6 +13,8 @@
       header("Location: ../create-new-password.php?newpwd=pwdnotsame");
       exit();
     }
+    else {
+
     $currrentDate = date ("U");
 
     require 'dbh.php';
@@ -81,6 +83,7 @@
                       }
 
                     }
+                  }
                 }
             }
           }
