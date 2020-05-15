@@ -25,7 +25,7 @@
       exit();
     }
       else {
-        mysqli_stmt_bind_param($stmt, "s", $selector);
+        mysqli_stmt_bind_param($stmt, "ss", $selector, $currrentDate);
         mysqli_stmt_execute($stmt);
 
         $result = mysqli_stmt_get_result($stmt);
@@ -46,7 +46,7 @@
             $sql = "SELECT * FROM users WHERE emailUsers=?;";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
-              echo "There was an error!";
+              echo "There was an error!49";
               exit();
             }
               else {
@@ -54,14 +54,14 @@
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 if (!$row = mysqli_fetch_assoc($result)) {
-                  echo "There was an error!";
+                  echo "There was an error!57";
                   exit();
                 }
                 else {
                   $sql = "UPDATE users SET pwdUsers=? WHERE emailUsers=?";
                   $stmt = mysqli_stmt_init($conn);
                   if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "There was an error!";
+                    echo "There was an error!64";
                     exit();
                   }
                     else {
@@ -71,8 +71,8 @@
 
                       $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?";
                       $stmt = mysqli_stmt_init($conn);
-                      if (mysqli_stmt_prepare($stmt, $sql)){
-                        echo "There was an error!";
+                      if (!mysqli_stmt_prepare($stmt, $sql)){
+                        echo "There was an error!75";
                         exit();
                      }
                       else {
@@ -92,4 +92,4 @@
   else {
     header("Location: ../index.php");
     exit();
- ?>
+}
