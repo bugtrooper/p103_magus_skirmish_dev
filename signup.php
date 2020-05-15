@@ -22,7 +22,8 @@
           echo '<p class ="signuperror">Username already teaken!</p>';
         }
       }
-      else if ($_GET['signup'] == "success") {
+      if (isset($_GET['signup']))
+          if ($_GET['signup']== "success") {
         echo '<p class ="signupsuccess">Success</p>';
       }
      ?>

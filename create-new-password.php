@@ -16,10 +16,8 @@
           <input type="password" name="pwd-repeat" placeholder="Repeat new password">
           <button type="submit" name="reset-password-submit">Reset password</button>
         </form>
-
         <?php
       }
     }
-   ?>
-
+     ?>
 </main>
