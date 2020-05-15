@@ -33,12 +33,12 @@
 <div id="body">
 	<div id="game">
 		<?php
-		require_once './Adatbazis.php';
-		require_once './engine.php';
+		require_once 'processing/Adatbazis.php';
+		require_once 'processing/engine.php';
 		$item_id;
 		$adatbazis_helyben = new adatbazis_david();
 		$result = $adatbazis_helyben -> adatkeres("SELECT * FROM `map1`");
-		require_once './process_map.php';
+		require_once 'processing/process_map.php';
 			echo "<table>";
 			for($j=1;$j<10;$j++)
 			{
