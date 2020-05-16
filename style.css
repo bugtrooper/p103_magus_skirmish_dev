@@ -1,110 +1,19 @@
-/*
-html5doctor.com Reset Stylesheet
-v1.6.1
-Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com
-Twitter: @rich_clark
-*/
-
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.site {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 4% 1fr auto 4%;
+  grid-template-rows: 50px 1fr 1fr;
+  grid-template-areas:
+  ". header header ."
+  ". main-left main-right ."
+  ". footer-left footer-right ."
+  ;
 }
 
-body {
-    line-height:1;
-}
-
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
-    display:block;
-}
-
-nav ul {
-    list-style:none;
-}
-
-blockquote, q {
-    quotes:none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content:'';
-    content:none;
-}
-
-a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-
-/* change colours to suit your needs */
-ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
-}
-
-/* change colours to suit your needs */
-mark {
-    background-color:#ff9;
-    color:#000;
-    font-style:italic;
-    font-weight:bold;
-}
-
-del {
-    text-decoration: line-through;
-}
-
-abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
-}
-
-table {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-
-/* change border colour to suit your needs */
-hr {
-    display:block;
-    height:1px;
-    border:0;
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
-}
-
-input, select {
-    vertical-align:middle;
-}
-/*
-
-Innen kezdődik a lényeg.
-
-*/
 table {
   border: "0";
   border-style: none;
@@ -127,34 +36,79 @@ table, td {
   border-spacing: 0px;
 }
 #Headline {
-  position: static;
+  grid-area: header;
+  grid-column-end: span 2;
   top: 0;
   width: 100%;
   height: auto;
+  z-index: 1;
 }
 #Login {
-  position: absolute;
-/*  float: right;*/
+  grid-area: header;
   right: 0px;
-  width: 500px;
+  width: auto;
+  align-self: center;
+  justify-self: right;
+  z-index: 2;
+
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "login-cred login-buttons"
+
+  ;
+}
+.login-cred {
+  grid-area: login-cred;
+}
+.login-buttons {
+  grid-area: login-buttons;
 }
 #body {
-  position: relative;
   top: 60;
   width: 800px;
   height: 600px;
   z-index: 0;
 }
 #game {
-  position: absolute;
+  grid-area: main-left;
   width: auto;
   overflow: auto;
   z-index: 0;
 }
+#gamephase{
+  grid-area: main-left;
+  width: 300;
+  height: 20;
+  z-index: 1;
+}
 #gombok {
-  float: right;
-  position: absolute;
+  grid-area: main-right;
   width: 250px;
   right: 15px;
   top: 0;
+}
+.green {
+  background-color: green;
+  height: 100%;
+  width:100%
+}
+.red {
+  background-color: red;
+  height: 100%;
+  width:100%
+}
+.yellow {
+  background-color: yellow;
+  height: 100%;
+  width:100%
+}
+.blue {
+  background-color: blue;
+  height: 100%;
+  width:100%
+}
+.purple {
+  background-color: purple;
+
 }
