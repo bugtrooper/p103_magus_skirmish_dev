@@ -1,8 +1,10 @@
 * {
+  box-sizing: content-box;
   margin: 0px;
   padding: 0px;
 }
-.site {
+body {
+  background-color: #ABABA9;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 4% 1fr auto 4%;
@@ -13,7 +15,9 @@
   ". footer-left footer-right ."
   ;
 }
-
+div {
+  background-color: #8A8A88;
+}
 table {
   border: "0";
   border-style: none;
@@ -38,6 +42,7 @@ table, td {
 #Headline {
   grid-area: header;
   grid-column-end: span 2;
+  padding: 20px;
   top: 0;
   width: 100%;
   height: auto;
@@ -72,11 +77,13 @@ table, td {
 }
 #game {
   grid-area: main-left;
+  padding: 20px;
   width: auto;
   overflow: auto;
   z-index: 0;
 }
 #gamephase{
+  background: none;
   grid-area: main-left;
   width: 300;
   height: 20;
@@ -84,31 +91,13 @@ table, td {
 }
 #gombok {
   grid-area: main-right;
+  padding: 20px;
   width: 250px;
   right: 15px;
   top: 0;
 }
-.green {
-  background-color: green;
-  height: 100%;
-  width:100%
-}
-.red {
-  background-color: red;
-  height: 100%;
-  width:100%
-}
-.yellow {
-  background-color: yellow;
-  height: 100%;
-  width:100%
-}
-.blue {
-  background-color: blue;
-  height: 100%;
-  width:100%
-}
-.purple {
-  background-color: purple;
-
+#signup {
+  grid-area: main-left;
+  grid-column-end: span 2;
+  padding: 20px;
 }

@@ -1,3 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
 <main>
   <h1>Reset your password</h1>
   <p>An e-mail will be send to you with instructions on how to reset your password.</p>

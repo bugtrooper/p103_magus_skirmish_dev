@@ -1,5 +1,8 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
-  <main>
+<link rel="stylesheet" type="text/css" href="style.css">
+  <body>
+    <div id="signup">
     <h1>Signup</h1>
     <?php
       if (isset($_GET['error'])) {
@@ -43,5 +46,5 @@
     }
      ?>
     <a href="reset-password.php">Forgot your password?</a>
-
-  </main>
+  </div>
+</body>
