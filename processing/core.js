@@ -47,7 +47,7 @@ function select_player(number)
 function game_start()
 {
 	let xhr = new XMLHttpRequest();
-			xhr.open('GET', 'engine.php?initmatch='+player_number, true);
+			xhr.open('GET', 'processing/engine.php?initmatch='+player_number, true);
 
 			xhr.onload = function()
 			{
@@ -70,7 +70,7 @@ function selection(id)
 	console.log("selcted:"+id+" command:"+action+" from: "+source_unit);
 	let comman = "command="+id+action+source_unit;
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', 'engine.php', true);
+	xhr.open('POST', 'processing/engine.php', true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function(){
 		console.log(this.responseText);
@@ -84,7 +84,7 @@ function send()
 	{
 		let ident = "id="+map_id[i]+map_terrain[i];
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST', 'process_map.php', true);
+		xhr.open('POST', 'processing/process_map.php', true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xhr.onload = function(){
 			console.log(this.responseText);
@@ -110,7 +110,7 @@ function reiceve()
 	{
 		let ident = "id="+map_id[i];
 		let xhr = new XMLHttpRequest();
-		xhr.open('GET', 'process_map.php', true);
+		xhr.open('GET', 'processing/process_map.php', true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xhr.onload = function(){
 			map_unit[i] = this.responseText;
@@ -153,7 +153,7 @@ function refresh()
 function getdatafromserver()
 {
 	let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'engine.php?updatemap=', true);
+      xhr.open('GET', 'processing/engine.php?updatemap=', true);
 
       xhr.onload = function()
 			{

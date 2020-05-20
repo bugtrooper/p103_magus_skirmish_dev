@@ -2,7 +2,7 @@
 class adatbazis_david
 {
 	// Tulajdonságok
-	var $servername = "magusskirmish.ddns.net";
+	var $servername = "localhost";
 	var $username = "root";
 	var $password = "";
 	var $dbname = "skirmish_map_magus";
@@ -39,7 +39,7 @@ class adatbazis_david
 	*/
 	function adatokkuldese($SQL)
 	{
-		$conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+		$conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname, $this->$port);
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 			return false;

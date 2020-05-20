@@ -60,7 +60,7 @@
 		<button type="button" onclick=move_action()>move</button>
 		<button type="button" onclick=attack_action()>attack</button>
 		<button type="button" onclick=refresh()>new</button>
-		<script src="core.js" defer></script>
+		<script src="processing/core.js" defer></script>
 	</div>
 	<div id="gamephase">M.A.G.U.S. skirmish ALPHA 001</div>
 </body>
