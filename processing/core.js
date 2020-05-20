@@ -62,7 +62,7 @@ function game_start()
 
 function targeting(id)
 {
-	document.getElementById(id).innerHTML = "<img src= red.png >";
+	document.getElementById(id).innerHTML = "<img src= ../sprites/red.png >";
 	target2_id=id;
 }
 function selection(id)
@@ -137,15 +137,15 @@ function refresh()
 	{
 		if(j_temp[k].unitid=="2")
 		{
-			document.getElementById(j_temp[k].id).innerHTML = "<img src=./sprites/50x50_unit_barbarian2.png>";
+			document.getElementById(j_temp[k].id).innerHTML = "<img src=../sprites/50x50_unit_barbarian2.png>";
 		}
 		if(j_temp[k].unitid=="1")
 		{
-			document.getElementById(j_temp[k].id).innerHTML = "<img src=./sprites/50x50_unit_barbarian1.png>";
+			document.getElementById(j_temp[k].id).innerHTML = "<img src=../sprites/50x50_unit_barbarian1.png>";
 		}
 		if(j_temp[k].unitid=="0")
 		{
-			document.getElementById(j_temp[k].id).innerHTML = "<img src=./sprites/50x50_terrain_grass.png>";
+			document.getElementById(j_temp[k].id).innerHTML = "<img src=../sprites/50x50_terrain_grass.png>";
 		}
 	}
 
@@ -172,7 +172,7 @@ function drawline(x0, y0, x1, y1) {
    var sy = (y0 < y1) ? 1 : -1;
    var err = dx - dy;
    while(true) {
-	  document.getElementById(y0*1000+x0).innerHTML = "<img src= green.png >";
+	  document.getElementById(y0*1000+x0).innerHTML = "<img src= ../sprites/green.png >";
       if ((x0 === x1) && (y0 === y1)) break;
       var e2 = 2*err;
       if (e2 > -dy) { err -= dy; x0  += sx; } //err -= dy; err= err-dy;

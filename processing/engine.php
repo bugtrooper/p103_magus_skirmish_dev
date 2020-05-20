@@ -1,6 +1,6 @@
 <?php
 //$conn = mysqli_connect('localhost', 'root', '', 'skirmish_map_magus');
-$conn1 = mysqli_connect("localhost", 'root', '', 'magus_active_instance');
+$conn1 = mysqli_connect("magusskirmish.ddns.net", 'root', '', 'magus_active_instance','3306');
 
 //echo "engine running...";
 if(isset($_GET['initmatch']))

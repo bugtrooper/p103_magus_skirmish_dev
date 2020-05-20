@@ -2,10 +2,11 @@
 class adatbazis_david
 {
 	// Tulajdonságok
-	var $servername = "localhost";
+	var $servername = "magusskirmish.ddns.net";
 	var $username = "root";
 	var $password = "";
 	var $dbname = "skirmish_map_magus";
+	var $port = "3306";
 
 	// Konstruktor:
 	function adatbazis()
