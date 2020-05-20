@@ -9,6 +9,11 @@ let source_unit=10;
 let unit_swap=0;
 let j_map_unit="";
 let j_temp={};
+let active_unit_indicator;
+let active_player_indicator;
+let player_unique_id;
+let my_units={};
+let player_number;
 
 
 let map_id = [];
@@ -35,6 +40,26 @@ map_unit[30]=1;
 map_unit[50]=1;
 map_unit[10]=2;
 map_unit[70]=2;
+function select_player(number)
+{
+	player_number=number;
+}
+function game_start()
+{
+	let xhr = new XMLHttpRequest();
+			xhr.open('GET', 'engine.php?initmatch='+player_number, true);
+
+			xhr.onload = function()
+			{
+				if(this.status == 200)
+				{
+					j_temp = JSON.parse(this.responseText);
+					console.log(j_temp);
+				}
+			}
+			xhr.send();
+};
+
 function targeting(id)
 {
 	document.getElementById(id).innerHTML = "<img src= red.png >";
