@@ -6,7 +6,7 @@ $conn1 = mysqli_connect("localhost", 'root', '', 'magus_active_instance','3306')
 if(isset($_GET['initmatch']))
 {
     $variable = mysqli_real_escape_string($conn1, $_GET['initmatch']);
-    $query = "SELECT kep,pos,hp,att,id FROM map3_units WHERE team=$variable";
+    $query = "SELECT kep,pos,id,ero,gyo,ugy,allo,ege,sze,inte,aka,asz,ke,te,ve,ce,ep,fp,fegyverid FROM map3_units WHERE team=$variable";
     $result=mysqli_query($conn1, $query);
     $jsonarray= array();
     while($row = mysqli_fetch_assoc($result))

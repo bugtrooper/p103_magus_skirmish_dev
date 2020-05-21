@@ -58,6 +58,7 @@ function game_start()
 				}
 			}
 			xhr.send();
+	my_units=j_temp;
 };
 
 function targeting(id)
