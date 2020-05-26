@@ -14,6 +14,7 @@ let active_player_indicator;
 let player_unique_id;
 let my_units={};
 let player_number;
+let j_temp2={};
 
 
 let map_id = [];
@@ -54,11 +55,25 @@ function game_start()
 				if(this.status == 200)
 				{
 					j_temp = JSON.parse(this.responseText);
+					my_units = JSON.parse(this.responseText);
 					console.log(j_temp);
 				}
 			}
 			xhr.send();
-	my_units=j_temp;
+
+		let xhr2 = new XMLHttpRequest();
+				xhr2.open('GET', 'processing/magus_rule.php?first='+player_number, true);
+
+				xhr2.onload = function()
+				{
+					if(this.status == 200)
+					{
+
+						j_temp2 = JSON.parse(this.responseText);
+						console.log(j_temp2);
+					}
+				}
+				xhr2.send();
 };
 
 function targeting(id)
