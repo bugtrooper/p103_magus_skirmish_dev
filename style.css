@@ -4,19 +4,24 @@
   padding: 0px;
 }
 body {
+  position: relative;
   background-color: #ABABA9;
+  /* background-image: url(https://wallpaper-house.com/data/out/12/wallpaper2you_513325.jpg); */
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 4% 1fr auto 4%;
-  grid-template-rows: 50px 1fr 1fr;
+  grid-template-rows: 50px 1fr auto;
   grid-template-areas:
   ". header header ."
   ". main-left main-right ."
-  ". footer-left footer-right ."
+  ". footer footer ."
   ;
 }
 div {
-  background-color: #8A8A88;
+  background-color: #EBD5B3;
 }
 table {
   border: "0";
@@ -33,13 +38,12 @@ table, td {
   height: 50px;
   width: 50px;
   cellspacing="0";
-  padding-top: 2px;
-  padding-right: 1px;
-  padding-bottom: 1px;
-  padding-left: 1px;
+  padding: 0px 1px 0px 1px;
   border-spacing: 0px;
 }
 #Headline {
+
+  box-sizing: border-box;
   grid-area: header;
   grid-column-end: span 2;
   padding: 20px;
@@ -55,7 +59,6 @@ table, td {
   align-self: center;
   justify-self: right;
   z-index: 2;
-
   grid-template-columns: auto auto;
   grid-template-rows: 1fr;
   grid-template-areas:
@@ -72,6 +75,7 @@ table, td {
 #body {
   top: 60;
   width: 800px;
+  max-width: 1850px;
   height: 600px;
   z-index: 0;
 }
@@ -89,15 +93,74 @@ table, td {
   height: 20;
   z-index: 1;
 }
-#gombok {
+#status {
   grid-area: main-right;
   padding: 20px;
   width: 250px;
   right: 15px;
   top: 0;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 80px 1fr ;
+  grid-template-areas:
+  "unit-avatar unit-name"
+  "action-buttons unit-stats";
+
+}
+.action-buttons {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.unit-avatar {
+  width: 100%;
+  height: 100%;
+}
+#unit-name{
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#unit-stats{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25px 65px 45px;
+  grid-template-areas:
+  "unit-stats-title"
+  "unit-stats-main"
+  "unit-stats-sec"
+}
+.unit-stats-title {
+  width: 100%;
+  height: 100%;
+}
+#unit-stats-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.main-stats {
+  width: 100%;
+  height: 100%;
+}
+#unit-stats-sec {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.sec-stats {
+  width: 100%;
+  height: 100%;
 }
 #signup {
   grid-area: main-left;
   grid-column-end: span 2;
   padding: 20px;
+}
+#footer {
+  grid-area: footer;
+  height: 200px;
+  /* background: none; */
 }

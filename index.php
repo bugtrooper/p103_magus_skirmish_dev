@@ -23,7 +23,7 @@
 			<div class="login-cred">
 				<form action="processing/login.php" method="post">
 				<input type="text" name="mailuid" placeholder="Username/E-mail...">
-				<input type="password" name="pwd" placeholder="Password">
+				<input type="current-password" name="pwd" placeholder="Password">
 				<button type="submit" name="login-submit">Login</button>
 				<a href="signup.php">Signup</a>
 			</form>
@@ -54,13 +54,48 @@
 			echo "</table><br>"	;
 		?>
 	</div>
-	<div id="gombok">
-		<button type="button" onclick=send()>previous</button>
-		<button type="button" onclick=reiceve()>next</button>
-		<button type="button" onclick=move_action()>move</button>
-		<button type="button" onclick=attack_action()>attack</button>
-		<button type="button" onclick=refresh()>new</button>
+	<div id="status">
+		<div id="unit-avatar">
+			<button class="unit-avatar" type="button">Unit avatar</button>
+		</div>
+		<div id="unit-name">
+			<button class="unit-name" type="button">Unit name</button>
+			<button class="unit-name" type="button">Unit title</button>
+		</div>
+		<div id="action-buttons">
+		<button class="action-buttons" type="button" onclick=send()>previous</button>
+		<button class="action-buttons" type="button" onclick=reiceve()>next</button>
+		<button class="action-buttons" type="button" onclick=move_action()>move</button>
+		<button class="action-buttons" type="button" onclick=attack_action()>attack</button>
+		<button class="action-buttons" type="button" onclick=refresh()>new</button>
 		<script src="processing/core.js" defer></script>
+		</div>
+		<div id="unit-stats">
+			<div id="unit-stats-title">
+				<button class="unit-stats-title" type="button">Stats</button>
+			</div>
+			<div id="unit-stats-main">
+				<button class="main-stats" type="button">Erő</button>
+				<button class="main-stats" type="button">Int</button>
+				<button class="main-stats" type="button">Szép</button>
+				<button class="main-stats" type="button">Gyo</button>
+				<button class="main-stats" type="button">Áll</button>
+				<button class="main-stats" type="button">Aka</button>
+				<button class="main-stats" type="button">Ügy</button>
+				<button class="main-stats" type="button">Egé</button>
+				<button class="main-stats" type="button">Aszt</button>
+			</div>
+			<div id="unit-stats-sec">
+				<button class="sec-stats" type="button">KÉ</button>
+				<button class="sec-stats" type="button">CÉ</button>
+				<button class="sec-stats" type="button">TÉ</button>
+				<button class="sec-stats" type="button">ÉP</button>
+				<button class="sec-stats" type="button">VÉ</button>
+				<button class="sec-stats" type="button">FP</button>
+			</div>
+		</div>
 	</div>
+
 	<div id="gamephase">M.A.G.U.S. skirmish ALPHA 001</div>
+	<div id="footer">Lábléc</div>
 </body>
