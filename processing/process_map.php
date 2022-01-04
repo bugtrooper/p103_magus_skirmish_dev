@@ -1,8 +1,8 @@
 <?php
 
 // Connect to a database
-$conn = mysqli_connect('magusskirmish.ddns.net', 'Gameinstance', 'usABKcOrvjYLuvyt', 'skirmish_map_magus','3306');
-$conn1 = mysqli_connect('magusskirmish.ddns.net', 'Gameinstance', 'usABKcOrvjYLuvyt', 'magus_active_instance','3306');
+$conn = mysqli_connect('localhost', 'Gameinstance', 'usABKcOrvjYLuvyt', 'magus_active_instance','3306');
+$conn1 = mysqli_connect('localhost', 'Gameinstance', 'usABKcOrvjYLuvyt', 'magus_active_instance','3306');
 // Check for POST variable
 if(isset($_POST['id']))
 {

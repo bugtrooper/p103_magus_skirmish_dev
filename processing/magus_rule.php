@@ -1,5 +1,5 @@
 <?php
-$conn1 = mysqli_connect("magusskirmish.ddns.net", 'Gameinstance', 'usABKcOrvjYLuvyt', 'magus_active_instance','3306');
+$conn1 = mysqli_connect("localhost", 'Gameinstance', 'usABKcOrvjYLuvyt', 'magus_active_instance','3306');
 if(isset($_GET['first']))
 {
     $variable = mysqli_real_escape_string($conn1, $_GET['first']);
